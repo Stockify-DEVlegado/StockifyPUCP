@@ -1,0 +1,135 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pe.edu.pucp.inf30.stockify.model.almacen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author DEVlegado
+ */
+
+public class Producto {
+    private int idProducto;
+    private String nombre;
+    private String descripcion;
+    private String marca;
+    private int stockMinimo;
+    private int stockMaximo;
+    private int stockActual;
+    private double precioUnitario;
+    private Categoria categoria;
+    private List<Movimiento> historicoMovimientos;
+    private List<Existencias> historicoExistencias;
+
+    public Producto() {}
+
+    public Producto(int idProducto, String nombre, String descripcion, 
+            String marca, int stockMinimo, int stockMaximo,int stockActual,
+            double precioUnitario, Categoria categoria) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.marca = marca;
+        this.stockMinimo = stockMinimo;
+        this.stockMaximo = stockMaximo;
+        this.stockActual = stockActual;
+        this.precioUnitario = precioUnitario;
+        this.categoria = categoria;
+        this.historicoExistencias = new ArrayList<>();
+        this.historicoMovimientos = new ArrayList<>();
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    
+    public int getStockMinimo() {
+        return stockMinimo;
+    }
+
+    public void setStockMinimo(int stockMinimo) {
+        this.stockMinimo = stockMinimo;
+    }
+
+    public int getStockMaximo() {
+        return stockMaximo;
+    }
+
+    public void setStockMaximo(int stockMaximo) {
+        this.stockMaximo = stockMaximo;
+    }
+
+    public int getStockActual() {
+        return stockActual;
+    }
+
+    public void setStockActual(int stockActual) {
+        this.stockActual = stockActual;
+    }
+
+    public List<Movimiento> getHistoricoMovimientos() {
+        return historicoMovimientos;
+    }
+
+    public void setHistoricoMovimientos(List<Movimiento> historicoMovimientos) {
+        this.historicoMovimientos = historicoMovimientos;
+    }
+
+    public List<Existencias> getHistoricoExistencias() {
+        return historicoExistencias;
+    }
+
+    public void setHistoricoExistencias(List<Existencias> historicoExistencias) {
+        this.historicoExistencias = historicoExistencias;
+    }
+    
+  
+}

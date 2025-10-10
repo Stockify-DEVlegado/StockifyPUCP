@@ -48,7 +48,7 @@ public class GuiaRemisionDAOImpl extends TransaccionalBaseDAO<GuiaRemision>
         } else {
             cmd.setNull("p_idEmpresa", Types.INTEGER);
         }
-        cmd.registerOutParameter("p_idGuiaRemision", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -60,7 +60,7 @@ public class GuiaRemisionDAOImpl extends TransaccionalBaseDAO<GuiaRemision>
                 = "{call modificarGuiaRemision(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idGuiaRemision", modelo.getIdGuiaRemision());
+        cmd.setInt("p_id", modelo.getIdGuiaRemision());
         cmd.setDouble("p_total", modelo.getTotal());
         cmd.setDate("p_fecha", new Date(modelo.getFecha().getTime()));
         cmd.setString("p_estadoDocumento", String.valueOf(modelo.getEstadoDocumento()));
@@ -83,7 +83,7 @@ public class GuiaRemisionDAOImpl extends TransaccionalBaseDAO<GuiaRemision>
         String sql
                 = "{call eliminarGuiaRemision(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idGuiaRemision", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }
@@ -96,7 +96,7 @@ public class GuiaRemisionDAOImpl extends TransaccionalBaseDAO<GuiaRemision>
                 "{call buscarGuiaRemisionPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idGuiaRemision", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

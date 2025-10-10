@@ -36,7 +36,7 @@ public class LineaOrdenVentaDAOImpl extends TransaccionalBaseDAO<LineaOrdenVenta
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaOrdenVenta", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
 
         return cmd;
     }
@@ -50,7 +50,7 @@ public class LineaOrdenVentaDAOImpl extends TransaccionalBaseDAO<LineaOrdenVenta
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.setInt("p_idLineaOrdenVenta", modelo.getIdLineaOrdenVenta());
+        cmd.setInt("p_id", modelo.getIdLineaOrdenVenta());
         return cmd;
     }
 
@@ -60,7 +60,7 @@ public class LineaOrdenVentaDAOImpl extends TransaccionalBaseDAO<LineaOrdenVenta
          
         String sql = "{call eliminarLineaOrdenVenta(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenVenta", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
     
@@ -70,7 +70,7 @@ public class LineaOrdenVentaDAOImpl extends TransaccionalBaseDAO<LineaOrdenVenta
         
         String sql = "{call buscarLineaOrdenVentaPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenVenta", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
       

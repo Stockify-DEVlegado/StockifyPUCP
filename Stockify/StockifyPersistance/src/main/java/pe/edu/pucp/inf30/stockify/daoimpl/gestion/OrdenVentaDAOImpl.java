@@ -37,12 +37,10 @@ public class OrdenVentaDAOImpl extends TransaccionalBaseDAO<OrdenVenta>
         else {
             cmd.setNull("p_idCliente", Types.INTEGER);
         }
-        
-        cmd.setString(sql, sql);
         cmd.setDate("p_fecha", new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setDouble("p_total", modelo.getTotal());
         cmd.setString("p_estado", String.valueOf(modelo.getEstado()));
-        cmd.registerOutParameter("p_idOrdenVenta", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
                 
         return cmd;
 
@@ -65,7 +63,7 @@ public class OrdenVentaDAOImpl extends TransaccionalBaseDAO<OrdenVenta>
         cmd.setDate("p_fecha", new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setDouble("p_total", modelo.getTotal());
         cmd.setString("p_estado", String.valueOf(modelo.getEstado()));
-        cmd.setInt("p_idOrdenVenta", modelo.getIdOrdenVenta());
+        cmd.setInt("p_id", modelo.getIdOrdenVenta());
         
         return cmd;
     }
@@ -76,7 +74,7 @@ public class OrdenVentaDAOImpl extends TransaccionalBaseDAO<OrdenVenta>
         
         String sql = "{call eliminarOrdenVenta(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenVenta", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -87,7 +85,7 @@ public class OrdenVentaDAOImpl extends TransaccionalBaseDAO<OrdenVenta>
         String sql = "{call buscarOrdenVentaPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenVenta", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

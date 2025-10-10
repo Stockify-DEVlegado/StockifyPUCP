@@ -29,14 +29,19 @@ public class LineaGuiaRemisionDAOImpl extends TransaccionalBaseDAO<LineaGuiaRemi
             throws SQLException {
 
         String sql
-                = "{call insertarLineaGuiaRemision(?, ?, ?, ?, ?)}";
+                = "{call insertarLineaGuiaRemision(?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idGuiaRemision", modelo.getGuiaRemision().getIdGuiaRemision());
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaGuiaRemision", Types.INTEGER);
+        if (modelo.getMovimiento()!= null) {
+            cmd.setInt("p_idMovimiento", modelo.getMovimiento().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimiento", Types.INTEGER);
+        }
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -45,14 +50,19 @@ public class LineaGuiaRemisionDAOImpl extends TransaccionalBaseDAO<LineaGuiaRemi
             LineaGuiaRemision modelo) throws SQLException {
 
         String sql
-                = "{call modificarLineaGuiaRemision(?, ?, ?, ?, ?)}";
+                = "{call modificarLineaGuiaRemision(?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
 
         cmd.setInt("p_idGuiaRemision", modelo.getGuiaRemision().getIdGuiaRemision());
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaGuiaRemision", Types.INTEGER);
+        if (modelo.getMovimiento()!= null) {
+            cmd.setInt("p_idMovimiento", modelo.getMovimiento().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimiento", Types.INTEGER);
+        }
+        cmd.setInt("p_id", modelo.getIdLineaGuiaRemision());
         
         return cmd;
     }
@@ -63,7 +73,7 @@ public class LineaGuiaRemisionDAOImpl extends TransaccionalBaseDAO<LineaGuiaRemi
         String sql = "{call eliminarLineaGuiaRemision(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idLineaGuiaRemision", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -73,7 +83,7 @@ public class LineaGuiaRemisionDAOImpl extends TransaccionalBaseDAO<LineaGuiaRemi
         String sql = "{call buscarLineaGuiaRemisionPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idLineaGuiaRemision", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -97,7 +107,10 @@ public class LineaGuiaRemisionDAOImpl extends TransaccionalBaseDAO<LineaGuiaRemi
         
         lineaGuiaRemision.setCantidad(rs.getInt("cantidad"));
         lineaGuiaRemision.setSubtotal(rs.getDouble("subtotal"));
-        
+        int idMovimiento = rs.getInt("idEmpresa");
+        if (!rs.wasNull()) {
+            lineaGuiaRemision.setMovimiento(new MovimientoDAOImpl().leer(idMovimiento));
+        }
         return lineaGuiaRemision;
     }
     

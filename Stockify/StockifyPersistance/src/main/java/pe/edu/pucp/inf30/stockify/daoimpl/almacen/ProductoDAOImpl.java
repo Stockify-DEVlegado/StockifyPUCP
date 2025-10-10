@@ -26,7 +26,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto>
     protected PreparedStatement comandoCrear(Connection conn, Producto modelo) 
             throws SQLException {
         
-        String sql = "{call insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ? , ?)}";
+        String sql = "{call insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ? )}";
         CallableStatement cmd = conn.prepareCall(sql);
         if(modelo.getCategoria()!=null){
             cmd.setInt("p_idCategoria",modelo.getCategoria().getIdCategoria());
@@ -40,7 +40,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto>
         cmd.setInt("p_stockMaximo", modelo.getStockMaximo());
         cmd.setInt("p_stockActual", modelo.getStockActual());
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
-        cmd.registerOutParameter("p_idProducto", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -62,7 +62,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto>
         cmd.setInt("p_stockMaximo", modelo.getStockMaximo());
         cmd.setInt("p_stockActual", modelo.getStockActual());
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
-        cmd.setInt("p_idProducto", modelo.getIdProducto());
+        cmd.setInt("p_id", modelo.getIdProducto());
         return cmd;
     }
 
@@ -71,7 +71,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto>
             throws SQLException {
         String sql = "{call eliminarProducto(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idProducto", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -80,7 +80,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto>
             throws SQLException {
         String sql = "{call buscarProductoPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idProducto", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

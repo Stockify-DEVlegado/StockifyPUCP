@@ -36,7 +36,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaOrdenCompra", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
 
         return cmd;
     }
@@ -50,7 +50,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.setInt("p_idLineaOrdenCompra", modelo.getIdLineaOrdenCompra());
+        cmd.setInt("p_id", modelo.getIdLineaOrdenCompra());
         return cmd;
     }
 
@@ -60,7 +60,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
          
         String sql = "{call eliminarLineaOrdenCompra(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenCompra", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
     
@@ -70,7 +70,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         
         String sql = "{call buscarLineaOrdenCompraPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenCompra", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
       
@@ -99,9 +99,9 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     protected PreparedStatement comandoLeerTodosPorOrden(Connection conn, 
             int idOrden) throws SQLException {
         
-        String sql = "{call listarLineasPorOrdenVenta(?)}";
+        String sql = "{call listarLineasPorOrdenCompra(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenVenta", idOrden);
+        cmd.setInt("p_idOrdenCompra", idOrden);
         return cmd;
     }
     

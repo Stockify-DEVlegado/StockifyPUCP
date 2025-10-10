@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pe.edu.pucp.inf30.stockify.dao.gestion.LineaOrdenIngresoDAO;
 import pe.edu.pucp.inf30.stockify.daoimpl.TransaccionalBaseDAO;
+import pe.edu.pucp.inf30.stockify.daoimpl.almacen.MovimientoDAOImpl;
 import pe.edu.pucp.inf30.stockify.model.gestion.LineaOrdenIngreso;
 import pe.edu.pucp.inf30.stockify.daoimpl.almacen.ProductoDAOImpl;
 
@@ -29,13 +30,18 @@ public class LineaOrdenIngresoDAOImpl extends TransaccionalBaseDAO<LineaOrdenIng
     protected PreparedStatement comandoCrear(Connection conn, 
             LineaOrdenIngreso modelo) throws SQLException {
         
-        String sql = "{call insertarLineaOrdenIngreso(?, ?, ?, ?, ?)}";
+        String sql = "{call insertarLineaOrdenIngreso(?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setInt("p_idOrdenIngreso", modelo.getOrdenIngreso().getIdOrdenIngreso());
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaOrdenIngreso", Types.INTEGER);
+        if (modelo.getMovimiento()!= null) {
+            cmd.setInt("p_idMovimiento", modelo.getMovimiento().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimiento", Types.INTEGER);
+        }
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -43,13 +49,18 @@ public class LineaOrdenIngresoDAOImpl extends TransaccionalBaseDAO<LineaOrdenIng
     protected PreparedStatement comandoActualizar(Connection conn, 
             LineaOrdenIngreso modelo) throws SQLException {
         
-        String sql = "{call modificarLineaOrdenIngreso(?, ?, ?, ?, ?)}";
+        String sql = "{call modificarLineaOrdenIngreso(?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setInt("p_idOrdenIngreso", modelo.getOrdenIngreso().getIdOrdenIngreso());
         cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subTotal", modelo.getSubtotal());
-        cmd.registerOutParameter("p_idLineaOrdenIngreso", Types.INTEGER);
+        if (modelo.getMovimiento()!= null) {
+            cmd.setInt("p_idMovimiento", modelo.getMovimiento().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimiento", Types.INTEGER);
+        }
+        cmd.setInt("p_id", modelo.getIdLineaOrdenIngreso());
         return cmd;
     }
 
@@ -59,7 +70,7 @@ public class LineaOrdenIngresoDAOImpl extends TransaccionalBaseDAO<LineaOrdenIng
          
         String sql = "{call eliminarLineaOrdenIngreso(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenIngreso", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -69,7 +80,7 @@ public class LineaOrdenIngresoDAOImpl extends TransaccionalBaseDAO<LineaOrdenIng
         
         String sql = "{call buscarLineaOrdenIngresoPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idLineaOrdenIngreso", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -92,7 +103,10 @@ public class LineaOrdenIngresoDAOImpl extends TransaccionalBaseDAO<LineaOrdenIng
                 new ProductoDAOImpl().leer(rs.getInt("idProducto")));
         lineaOrdenIngreso.setCantidad(rs.getInt("cantidad"));
         lineaOrdenIngreso.setSubtotal(rs.getDouble("subTotal"));
-
+        int idMovimiento = rs.getInt("idMovimiento");
+        if (!rs.wasNull()) {
+            lineaOrdenIngreso.setMovimiento(new MovimientoDAOImpl().leer(idMovimiento));
+        }
         return lineaOrdenIngreso;
     }
 

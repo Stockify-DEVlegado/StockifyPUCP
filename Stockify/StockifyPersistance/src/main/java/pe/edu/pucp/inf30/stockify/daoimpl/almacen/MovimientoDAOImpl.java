@@ -32,7 +32,7 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
         cmd.setString("p_tipoMovimiento", String.valueOf(modelo.getTipoMovimiento()));
         cmd.setDate("p_fecha",new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setString("p_descripcion", modelo.getDescripcion());
-        cmd.registerOutParameter("p_idMovimiento", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -45,7 +45,7 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
         cmd.setString("p_tipoMovimiento", String.valueOf(modelo.getTipoMovimiento()));
         cmd.setDate("p_fecha",new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setString("p_descripcion", modelo.getDescripcion());
-        cmd.setInt("p_idMovimiento", modelo.getIdMovimiento());
+        cmd.setInt("p_id", modelo.getIdMovimiento());
         return cmd;
     }
 
@@ -54,7 +54,7 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
             throws SQLException {
         String sql = "{call eliminarMovimiento(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("idMovimiento", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -63,7 +63,7 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
             throws SQLException {
         String sql = "{call buscarMovimientoPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idMovimiento", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

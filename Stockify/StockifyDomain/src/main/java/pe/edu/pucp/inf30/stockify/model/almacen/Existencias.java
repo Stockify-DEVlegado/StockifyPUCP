@@ -17,6 +17,7 @@ public class Existencias {
     private int idUnico;
     private Date fecha;
     private Date hora;
+    private Movimiento movimiento;
     private EstadoExistencias estado;
     
     public Existencias() {
@@ -71,5 +72,13 @@ public class Existencias {
     public void setEstado(EstadoExistencias estado) {
         this.estado = estado;
     }
-   
+
+    public Movimiento getMovimiento() {
+        return movimiento;
+    }
+
+    public void setMovimiento(Movimiento movimiento) {
+        this.movimiento = movimiento;
+    }
+    
 }

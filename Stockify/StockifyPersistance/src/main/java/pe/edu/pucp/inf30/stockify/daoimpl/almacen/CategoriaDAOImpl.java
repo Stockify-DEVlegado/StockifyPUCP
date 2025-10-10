@@ -30,7 +30,7 @@ public class CategoriaDAOImpl extends BaseDAO<Categoria>
         CallableStatement cmd = conn.prepareCall(sql);
      
         cmd.setString("p_nombre", modelo.getNombre());
-        cmd.registerOutParameter("p_idCategoria", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -41,7 +41,7 @@ public class CategoriaDAOImpl extends BaseDAO<Categoria>
         String sql = "{call modificarCategoria(?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
           cmd.setString("p_nombre", modelo.getNombre());
-        cmd.setInt("p_idCategoria", modelo.getIdCategoria());
+        cmd.setInt("p_id", modelo.getIdCategoria());
         return cmd;
     }
 
@@ -50,7 +50,7 @@ public class CategoriaDAOImpl extends BaseDAO<Categoria>
             throws SQLException {
         String sql = "{call eliminarCategoria(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idCategoria", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 
@@ -59,7 +59,7 @@ public class CategoriaDAOImpl extends BaseDAO<Categoria>
             throws SQLException {
         String sql = "{call buscarCategoriaPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idCategoria", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

@@ -46,7 +46,7 @@ public class OrdenIngresoDAOImpl extends TransaccionalBaseDAO<OrdenIngreso>
         } else {
             cmd.setInt("p_idOrdenCompra", Types.INTEGER);
         }
-        cmd.registerOutParameter("p_idOrdenIngreso", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
@@ -71,7 +71,7 @@ public class OrdenIngresoDAOImpl extends TransaccionalBaseDAO<OrdenIngreso>
         if (modelo.getOrdenCompra()!= null) {
             cmd.setInt("p_idOrdenCompra", modelo.getOrdenCompra().getIdOrdenCompra());
         } else {
-            cmd.setNull("p_idOrdenCompra", Types.INTEGER);
+            cmd.setNull("p_id", Types.INTEGER);
         }
         
         return cmd;
@@ -83,7 +83,7 @@ public class OrdenIngresoDAOImpl extends TransaccionalBaseDAO<OrdenIngreso>
         
         String sql = "{call eliminarOrdenIngreso(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenIngreso", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }
@@ -95,7 +95,7 @@ public class OrdenIngresoDAOImpl extends TransaccionalBaseDAO<OrdenIngreso>
         String sql = "{call buscarOrdenIngresoPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenIngreso", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
 

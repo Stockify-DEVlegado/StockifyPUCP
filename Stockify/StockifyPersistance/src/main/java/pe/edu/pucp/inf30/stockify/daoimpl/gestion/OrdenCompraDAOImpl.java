@@ -32,16 +32,16 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra>
         CallableStatement cmd = conn.prepareCall(sql);
         
         if (modelo.getProveedor()!= null) {
-            cmd.setInt("p_idCliente", modelo.getProveedor().getIdEmpresa());
+            cmd.setInt("p_idProveedor", modelo.getProveedor().getIdEmpresa());
         }
         else {
-            cmd.setNull("p_idCliente", Types.INTEGER);
+            cmd.setNull("p_idProveedor", Types.INTEGER);
         }
         
         cmd.setDate("p_fecha", new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setDouble("p_total", modelo.getTotal());
         cmd.setString("p_estado", String.valueOf(modelo.getEstado()));
-        cmd.registerOutParameter("p_idOrdenCompra", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
                 
         return cmd;
 
@@ -55,16 +55,16 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra>
         CallableStatement cmd = conn.prepareCall(sql);
         
         if (modelo.getProveedor()!= null) {
-            cmd.setInt("p_idCliente", modelo.getProveedor().getIdEmpresa());
+            cmd.setInt("p_idProveedor", modelo.getProveedor().getIdEmpresa());
         }
         else {
-            cmd.setNull("p_idCliente", Types.INTEGER);
+            cmd.setNull("p_idProveedor", Types.INTEGER);
         }
         
         cmd.setDate("p_fecha", new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setDouble("p_total", modelo.getTotal());
         cmd.setString("p_estado", String.valueOf(modelo.getEstado()));
-        cmd.setInt("p_idOrdenCompra", modelo.getIdOrdenCompra());
+        cmd.setInt("p_id", modelo.getIdOrdenCompra());
         
         return cmd;
     }
@@ -75,7 +75,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra>
         
         String sql = "{call eliminarOrdenCompra(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenCompra", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
     
@@ -86,7 +86,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra>
         String sql = "{call buscarOrdenCompraPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idOrdenCompra", id);
+        cmd.setInt("p_id", id);
         return cmd;
     }
     

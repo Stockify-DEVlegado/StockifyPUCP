@@ -41,7 +41,7 @@ public class UsuarioDAOImpl extends BaseDAO<Usuario> implements
         cmd.setString("p_telefono", modelo.getTelefono());
         cmd.setBoolean("p_activo", modelo.isActivo());
         cmd.setString("p_tipoUsuario", String.valueOf(modelo.getTipoUsuario()));
-        cmd.registerOutParameter("p_idUsuario", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -52,7 +52,7 @@ public class UsuarioDAOImpl extends BaseDAO<Usuario> implements
         String sql = "{call modificarUsuario(?, ?, ?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idUsuario", modelo.getIdUsuario());
+        cmd.setInt("p_id", modelo.getIdUsuario());
         if (modelo.getCuenta()!= null) {
             cmd.setInt("p_idCuentaUsuario", modelo.getCuenta().getIdCuentaUsuario());
         }
@@ -75,7 +75,7 @@ public class UsuarioDAOImpl extends BaseDAO<Usuario> implements
         String sql = "{call eliminarUsuario(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idUsuario", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }
@@ -87,7 +87,7 @@ public class UsuarioDAOImpl extends BaseDAO<Usuario> implements
         String sql = "{call buscarUsuarioPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idUsuario", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }

@@ -31,7 +31,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements
         cmd.setString("p_username", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
         cmd.setDate("p_ultimoAcceso", new java.sql.Date(modelo.getUltimoAcceso().getTime()));
-        cmd.registerOutParameter("p_idCuentaUsuario", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
         
     }
@@ -43,7 +43,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements
         String sql = "{call modificarCuentaUsuario(?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idCuentaUsuario", modelo.getIdCuentaUsuario());
+        cmd.setInt("p_id", modelo.getIdCuentaUsuario());
         cmd.setString("p_username", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
         cmd.setDate("p_ultimoAcceso", new java.sql.Date(modelo.getUltimoAcceso().getTime()));
@@ -58,7 +58,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements
         String sql = "{call eliminarCuentaUsuario(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idCuentaUsuario", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }
@@ -70,7 +70,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements
         String sql = "{call buscarCuentaUsuarioPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idCuentaUsuario", id);
+        cmd.setInt("p_id", id);
         
         return cmd;
     }

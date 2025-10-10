@@ -33,7 +33,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO {
         cmd.setString("p_email", modelo.getEmail());
         cmd.setBoolean("p_activo", modelo.isActivo());
         cmd.setString("p_tipoEmpresa", String.valueOf(modelo.getTipoEmpresa()));
-        cmd.registerOutParameter("p_idEmpresa", Types.INTEGER);
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
 
@@ -49,7 +49,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO {
         cmd.setString("p_email", modelo.getEmail());
         cmd.setBoolean("p_activo", modelo.isActivo());
         cmd.setString("p_tipoEmpresa", String.valueOf(modelo.getTipoEmpresa()));
-        cmd.setInt("p_idEmpresa", modelo.getIdEmpresa());
+        cmd.setInt("p_id", modelo.getIdEmpresa());
         return cmd;
     }
 
@@ -57,7 +57,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO {
     protected PreparedStatement comandoEliminar(Connection conn, Integer idEmpresa) throws SQLException {
         String sql = "{call eliminarEmpresa(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idEmpresa", idEmpresa);
+        cmd.setInt("p_id", idEmpresa);
         return cmd;
     }
 
@@ -65,7 +65,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO {
     protected PreparedStatement comandoLeer(Connection conn, Integer idEmpresa) throws SQLException {
         String sql = "{call buscarEmpresaPorId(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_idEmpresa", idEmpresa);
+        cmd.setInt("p_id", idEmpresa);
         return cmd;
     }
 

@@ -14,6 +14,8 @@ import pe.edu.pucp.inf30.stockify.dao.almacen.MovimientoDAO;
 import pe.edu.pucp.inf30.stockify.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.stockify.model.almacen.Movimiento;
 import pe.edu.pucp.inf30.stockify.model.almacen.TipoMovimiento;
+import pe.edu.pucp.inf30.stockify.daoimpl.gestion.LineaOrdenIngresoDAOImpl;
+import pe.edu.pucp.inf30.stockify.daoimpl.gestion.LineaOrdenSalidaDAOImpl;
 
 /**
  *
@@ -27,11 +29,26 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
     protected PreparedStatement comandoCrear(Connection conn, Movimiento modelo) 
             throws SQLException {
         
-        String sql = "{call insertarMovimiento(?, ?, ?, ?)}";
+        String sql = "{call insertarMovimiento(?, ?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setString("p_tipoMovimiento", String.valueOf(modelo.getTipoMovimiento()));
         cmd.setDate("p_fecha",new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setString("p_descripcion", modelo.getDescripcion());
+        if(modelo.getLineaOrdenIngreso() != null) {
+            cmd.setInt("p_idLineaOrdenIngreso", modelo.getLineaOrdenIngreso().getIdLineaOrdenIngreso());
+        } else {
+            cmd.setNull("p_lineaOrdenIngreso", Types.INTEGER);
+        }
+        if(modelo.getLineaOrdenSalida() != null) {
+            cmd.setInt("p_idLineaOrdenSalida", modelo.getLineaOrdenSalida().getIdLineaOrdenSalida());
+        } else {
+            cmd.setNull("p_lineaOrdenSalida", Types.INTEGER);
+        }
+        if(modelo.getProducto() != null) {
+            cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
+        } else  {
+            cmd.setNull("p_idProducto", Types.INTEGER);
+        }
         cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
@@ -40,11 +57,26 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
     protected PreparedStatement comandoActualizar(Connection conn, 
             Movimiento modelo) throws SQLException {
         
-        String sql = "{call modificarMovimiento(?, ?, ?, ?)}";
+        String sql = "{call modificarMovimiento(?, ?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setString("p_tipoMovimiento", String.valueOf(modelo.getTipoMovimiento()));
         cmd.setDate("p_fecha",new java.sql.Date(modelo.getFecha().getTime()));
         cmd.setString("p_descripcion", modelo.getDescripcion());
+        if(modelo.getLineaOrdenIngreso() != null) {
+            cmd.setInt("p_idLineaOrdenIngreso", modelo.getLineaOrdenIngreso().getIdLineaOrdenIngreso());
+        } else {
+            cmd.setNull("p_lineaOrdenIngreso", Types.INTEGER);
+        }
+        if(modelo.getLineaOrdenSalida() != null) {
+            cmd.setInt("p_idLineaOrdenSalida", modelo.getLineaOrdenSalida().getIdLineaOrdenSalida());
+        } else {
+            cmd.setNull("p_lineaOrdenSalida", Types.INTEGER);
+        }
+        if(modelo.getProducto() != null) {
+            cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
+        } else  {
+            cmd.setNull("p_idProducto", Types.INTEGER);
+        }
         cmd.setInt("p_id", modelo.getIdMovimiento());
         return cmd;
     }
@@ -82,6 +114,18 @@ public class MovimientoDAOImpl extends BaseDAO<Movimiento>
         movimiento.setDescripcion(rs.getString("descripcion"));
         movimiento.setTipoMovimiento(TipoMovimiento.valueOf(rs.getString("tipoMovimiento")));
         movimiento.setFecha(rs.getTimestamp("fecha"));
+        int idLineaOrdenIngreso = rs.getInt("idLineaOrdenIngreso");
+        if(!rs.wasNull()) {
+            movimiento.setLineaOrdenIngreso(new LineaOrdenIngresoDAOImpl().leer(idLineaOrdenIngreso));
+        }
+        int idLineaOrdenSalida = rs.getInt("idLineaOrdenSalida");
+        if(!rs.wasNull()) {
+            movimiento.setLineaOrdenSalida(new LineaOrdenSalidaDAOImpl().leer(idLineaOrdenSalida));
+        }
+        int idProducto = rs.getInt("idProducto");
+        if(!rs.wasNull()) {
+            movimiento.setProducto(new ProductoDAOImpl().leer(idProducto));
+        }
         return movimiento;
     }
 }

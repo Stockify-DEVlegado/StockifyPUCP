@@ -27,7 +27,7 @@ public class ExistenciasDAOImpl extends BaseDAO<Existencias>
     protected PreparedStatement comandoCrear(Connection conn, Existencias modelo) 
             throws SQLException {
         
-        String sql = "{call insertarExistencias(?, ?, ?, ?, ?, ?)}";
+        String sql = "{call insertarExistencias(?, ?, ?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setInt("p_idUnico", modelo.getIdUnico());
         if (modelo.getProducto()!= null) {
@@ -38,7 +38,16 @@ public class ExistenciasDAOImpl extends BaseDAO<Existencias>
         cmd.setString("p_estado", String.valueOf(modelo.getEstado()));
         cmd.setDate("p_fechaIngreso",new java.sql.Date(modelo.getFechaIngreso().getTime()));
         cmd.setDate("p_fechaEgreso",new java.sql.Date(modelo.getFechaEgreso().getTime()));        
-        cmd.setString("p_tipoMovimiento", String.valueOf(modelo.get()));
+        if (modelo.getMovimientoIngreso() != null) {
+            cmd.setInt("p_idMovimientoIngreso", modelo.getMovimientoIngreso().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimientoIngreso", Types.INTEGER);
+        }
+        if (modelo.getMovimientoEgreso() != null) {
+            cmd.setInt("p_idMovimientoEgreso", modelo.getMovimientoEgreso().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimientoEgreso", Types.INTEGER);
+        }
         cmd.registerOutParameter("p_id", Types.INTEGER);
         return cmd;
     }
@@ -47,16 +56,26 @@ public class ExistenciasDAOImpl extends BaseDAO<Existencias>
     protected PreparedStatement comandoActualizar(Connection conn, 
             Existencias modelo) throws SQLException {
         
-        String sql = "{call modificarExistencias(?, ?, ?, ?, ?, ?)}";
+        String sql = "{call modificarExistencias(?, ?, ?, ?, ?, ?, ?, ?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setInt("p_idUnico", modelo.getIdUnico());
-        cmd.setDate("p_fecha",new java.sql.Date(modelo.getFecha().getTime()));
-        cmd.setDate("p_hora",new java.sql.Date(modelo.getHora().getTime()));        
-        cmd.setString("p_tipoMovimiento", String.valueOf(modelo.getEstado()));
-        if (modelo.getMovimiento()!= null) {
-            cmd.setInt("p_idMovimiento", modelo.getMovimiento().getIdMovimiento());
+        if (modelo.getProducto()!= null) {
+            cmd.setInt("p_idProducto", modelo.getProducto().getIdProducto());
         } else {
-            cmd.setNull("p_idMovimiento", Types.INTEGER);
+            cmd.setNull("p_idProducto", Types.INTEGER);
+        }
+        cmd.setString("p_estado",String.valueOf(modelo.getEstado()));
+        cmd.setDate("p_fechaIngreso",new java.sql.Date(modelo.getFechaIngreso().getTime()));
+        cmd.setDate("p_fechaEgreso",new java.sql.Date(modelo.getFechaEgreso().getTime()));
+        if (modelo.getMovimientoIngreso() != null) {
+            cmd.setInt("p_idMovimientoIngreso", modelo.getMovimientoIngreso().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimientoIngreso", Types.INTEGER);
+        }
+        if (modelo.getMovimientoEgreso() != null) {
+            cmd.setInt("p_idMovimientoEgreso", modelo.getMovimientoEgreso().getIdMovimiento());
+        } else {
+            cmd.setNull("p_idMovimientoEgreso", Types.INTEGER);
         }
         cmd.setInt("p_id", modelo.getIdExistencia());
         return cmd;
@@ -93,12 +112,20 @@ public class ExistenciasDAOImpl extends BaseDAO<Existencias>
         Existencias existencias = new Existencias();
         existencias.setIdExistencia(rs.getInt("idExistencia"));
         existencias.setIdUnico(rs.getInt("idUnico"));
-        existencias.setFecha(rs.getTimestamp("fecha"));
-        existencias.setHora(rs.getTimestamp("hora"));
-        existencias.setEstado(EstadoExistencias.valueOf(rs.getString("estado")));
-        int idMovimiento = rs.getInt("idMovimiento");
+        int idProducto = rs.getInt("idMovimiento");
         if (!rs.wasNull()) {
-            existencias.setMovimiento(new MovimientoDAOImpl().leer(idMovimiento));
+            existencias.setProducto(new ProductoDAOImpl().leer(idProducto));
+        }
+        existencias.setEstado(EstadoExistencias.valueOf(rs.getString("estado")));
+        existencias.setFechaIngreso(rs.getTimestamp("fechaIngreso"));
+        existencias.setFechaEgreso(rs.getTimestamp("fechaEgreso"));
+        int idMovimientoIngreso = rs.getInt("idMovimientoIngreso");
+        if (!rs.wasNull()) {
+            existencias.setMovimientoIngreso(new MovimientoDAOImpl().leer(idMovimientoIngreso));
+        }
+        int idMovimientoEgreso = rs.getInt("idMovimientoEgreso");
+        if (!rs.wasNull()) {
+            existencias.setMovimientoEgreso(new MovimientoDAOImpl().leer(idMovimientoEgreso));
         }
         return existencias;
     }

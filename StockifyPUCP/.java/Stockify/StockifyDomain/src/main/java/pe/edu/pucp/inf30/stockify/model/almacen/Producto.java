@@ -4,9 +4,6 @@
  */
 package pe.edu.pucp.inf30.stockify.model.almacen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author DEVlegado
@@ -19,6 +16,7 @@ public class Producto {
     private String marca;
     private int stockMinimo;
     private int stockMaximo;
+    private double precioUnitario;
     private Categoria categoria;
 
     public Producto() {}
@@ -59,6 +57,14 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+    
     public Categoria getCategoria() {
         return categoria;
     }

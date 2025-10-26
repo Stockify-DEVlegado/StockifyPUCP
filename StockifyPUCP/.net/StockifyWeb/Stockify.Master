@@ -1,57 +1,122 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Stockify.master.cs" Inherits="StockifyWeb.Stockify" %>
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Stockify</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        #bdSidebar {
+            width: 280px;
+            height: 960px;
+            position: fixed;
+        }
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+        }
+        .mynav .nav-item a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+        }
+        .mynav .nav-item a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        @media (max-width: 768px) {
+            #bdSidebar {
+                position: static;
+                height: auto;
+                width: 100%;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <!--Division de la izquierda -->
-        <div id ="bdSidebar" class ="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white offcanvas-md offcanvas-start">
-            <a href ="index.aspx" class="navbar-brand">
-                <img src="Images/stockify.png" width="150">
+    <div class="container-fluid d-flex p-0">
+        <!-- Barra Lateral -->
+        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white">
+            <a href="index.aspx" class="navbar-brand">
+                <img src="Images/stockify.png" width="150" alt="Logo Stockify">
             </a>
-            <hr />
-            <ul class ="mynav navbar-brand nav-pills flex-column mb-auto">
+            <hr>
+            <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
-                    <a href ="Dashboard.aspx">
-                        <i class="fa-solid fa-cars pe-2"></i> Dashboard
+                    <a href="Inicio.aspx" class="nav-link text-white">
+                        <i class="fa-solid fa-home pe-2"></i> Inicio
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href ="Inventario.aspx">
-                        <i class="fa-solid fa-cars pe-2"></i> Inventario
+                    <a href="Inventario.aspx" class="nav-link text-white">
+                        <i class="fa-solid fa-boxes pe-2"></i> Inventario
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href ="Reportes.aspx">
-                        <i class="fa-solid fa-cars pe-2"></i> Reportes
+                    <a href="Reportes.aspx" class="nav-link text-white">
+                        <i class="fa-solid fa-chart-bar pe-2"></i> Reportes
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href ="Proveedores.aspx">
-                        <i class="fa-solid fa-cars pe-2"></i> Proveedores
+                    <a href="Proveedores.aspx" class="nav-link text-white">
+                        <i class="fa-solid fa-truck pe-2"></i> Proveedores
                     </a>
                 </li>
                 <li class="nav-item mb-1">
-                    <a href ="Ordenes.aspx">
-                        <i class="fa-solid fa-cars pe-2"></i> Ordenes
+                    <a href="Ordenes.aspx" class="nav-link text-white">
+                        <i class="fa-solid fa-file-invoice pe-2"></i> Ordenes
                     </a>
                 </li>
             </ul>
-            <hr/>
-            <div class="d-flex">
-                <i class ="fa-solid fa-book me-2"></i>
+            <hr>
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-book me-2"></i>
                 <h6 class="mt-1 mb-0">Stockify</h6>
             </div>
         </div>
+
+        <!-- Contenido Principal -->
+        <div class="main-content bg-light">
+            <!-- Barra Superior -->
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-none d-md-block" href="#">
+                        
+                    </a>
+                    <form class="d-flex">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>
+                                Usuario
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+
+            <!-- Área de Contenido -->
+            <div class="p-4">
+                <form runat="server">
+                    <asp:ContentPlaceHolder ID="cph_Contenido" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

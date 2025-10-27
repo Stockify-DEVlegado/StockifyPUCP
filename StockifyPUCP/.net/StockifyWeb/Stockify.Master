@@ -12,7 +12,7 @@
     <style>
         #bdSidebar {
             width: 280px;
-            height: 960px;
+            min-height: 100vh;
             position: fixed;
         }
         .main-content {
@@ -27,6 +27,40 @@
             border-radius: 5px;
         }
         .mynav .nav-item a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        /* Estilo para el elemento activo (verde limón) */
+        .mynav .nav-item a.active,
+        .mynav .nav-item a active.text-white {
+            color: #b6ff00 !important; /* Verde limon para el texto */
+            font-weight: 500;
+        }
+        .mynav .nav-item a.active i,
+        .mynav .nav-item a.active.text-white i {
+            color: #b6ff00 !important; /* Verde limon para los iconos */
+        }
+        /* Estilo para la imagen del logo */
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 16px; 
+            margin-bottom: 5px;
+        }
+        /* Estilo para el menú de usuario en el sidebar */
+        .user-menu-sidebar {
+            margin-top: auto; /* Esto empuja el elemento hacia la parte inferior */
+            padding: 20px 0;
+        }
+        .user-dropdown-btn {
+            width: 100%;
+            text-align: left;
+            padding: 10px 15px;
+            border: none;
+            background: transparent;
+            color: white;
+            border-radius: 5px;
+        }
+        .user-dropdown-btn:hover {
             background-color: rgba(255,255,255,0.1);
         }
         @media (max-width: 768px) {
@@ -45,9 +79,10 @@
     <div class="container-fluid d-flex p-0">
         <!-- Barra Lateral -->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white">
-            <a href="index.aspx" class="navbar-brand">
-                <img src="Images/logo.png" width="150" alt="Logo Stockify">
-            </a>
+            <!-- Logo sin enlace y con alineación a la derecha -->
+            <div class="logo-container">
+                <img src="Images/stockify-logo.png" width="150" alt="Logo Stockify">
+            </div>
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
@@ -76,37 +111,27 @@
                     </a>
                 </li>
             </ul>
-            <hr>
-            <div class="d-flex align-items-center">
-                <i class="fa-solid fa-book me-2"></i>
-                <h6 class="mt-1 mb-0">Stockify</h6>
+            
+            <!-- Menú de usuario en el sidebar (parte inferior) -->
+            <div class="user-menu-sidebar">
+                <div class="dropdown">
+                    <button class="user-dropdown-btn dropdown-toggle" type="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-2"></i>
+                        Usuario
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
+         
         </div>
 
         <!-- Contenido Principal -->
         <div class="main-content bg-light">
-            <!-- Barra Superior -->
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand d-none d-md-block" href="#">
-                        
-                    </a>
-                    <form class="d-flex">
-                        <div class="dropdown">
-                            <button class="btn btn-outline-light dropdown-toggle" type="button" 
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>
-                                Usuario
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-                            </ul>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-
             <!-- Área de Contenido -->
             <div class="p-4">
                 <form runat="server">
@@ -118,5 +143,30 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarLinks = document.querySelectorAll('#bdSidebar .mynav .nav-item a');
+
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    sidebarLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop();
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+
+        });
+
+    </script>
 </body>
 </html>

@@ -46,7 +46,7 @@
         <!-- Barra Lateral -->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white">
             <a href="index.aspx" class="navbar-brand">
-                <img src="Images/stockify.png" width="150" alt="Logo Stockify">
+                <img src="Images/logo.png" width="150" alt="Logo Stockify">
             </a>
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">

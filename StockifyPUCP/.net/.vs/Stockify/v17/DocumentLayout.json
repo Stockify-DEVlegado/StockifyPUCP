@@ -3,18 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|c:\\users\\lenovo\\documents\\2025-2\\prog3\\stockify - devlegado\\stockify\\stockifypucp\\.net\\stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\AppData\\Local\\Temp\\af17ab08-8f89-4115-b4a0-e4b11b6dc16c_Pregunta 01 - Estudiantes.zip.16c\\TransitSoft\\TransitSoftWA\\TransitSoft.Master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|c:\\users\\lenovo\\documents\\2025-2\\prog3\\stockify - devlegado\\stockify\\stockifypucp\\.net\\stockifyweb\\stockify.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\stockify.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\AppData\\Local\\Temp\\c1d8e98b-5a2a-484c-82d9-8dc03a03a8bf_Pregunta 01 - Estudiantes.zip.8bf\\TransitSoft\\TransitSoftWA\\AsignarVehiculosAPropietario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,20 +22,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AsignarVehiculosAPropietario.aspx",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\c1d8e98b-5a2a-484c-82d9-8dc03a03a8bf_Pregunta 01 - Estudiantes.zip.8bf\\TransitSoft\\TransitSoftWA\\AsignarVehiculosAPropietario.aspx",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\c1d8e98b-5a2a-484c-82d9-8dc03a03a8bf_Pregunta 01 - Estudiantes.zip.8bf\\TransitSoft\\TransitSoftWA\\AsignarVehiculosAPropietario.aspx",
-              "ToolTip": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\c1d8e98b-5a2a-484c-82d9-8dc03a03a8bf_Pregunta 01 - Estudiantes.zip.8bf\\TransitSoft\\TransitSoftWA\\AsignarVehiculosAPropietario.aspx [Solo lectura]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\c1d8e98b-5a2a-484c-82d9-8dc03a03a8bf_Pregunta 01 - Estudiantes.zip.8bf\\TransitSoft\\TransitSoftWA\\AsignarVehiculosAPropietario.aspx [Solo lectura]",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-26T22:57:57.792Z",
-              "EditorCaption": " [Solo lectura]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Inicio.aspx",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Inicio.aspx",
               "RelativeDocumentMoniker": "StockifyWeb\\Inicio.aspx",
@@ -49,25 +30,11 @@
               "RelativeToolTip": "StockifyWeb\\Inicio.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-26T22:19:48.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-26T22:19:48.991Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TransitSoft.Master",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\af17ab08-8f89-4115-b4a0-e4b11b6dc16c_Pregunta 01 - Estudiantes.zip.16c\\TransitSoft\\TransitSoftWA\\TransitSoft.Master",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\af17ab08-8f89-4115-b4a0-e4b11b6dc16c_Pregunta 01 - Estudiantes.zip.16c\\TransitSoft\\TransitSoftWA\\TransitSoft.Master",
-              "ToolTip": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\af17ab08-8f89-4115-b4a0-e4b11b6dc16c_Pregunta 01 - Estudiantes.zip.16c\\TransitSoft\\TransitSoftWA\\TransitSoft.Master [Solo lectura]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\af17ab08-8f89-4115-b4a0-e4b11b6dc16c_Pregunta 01 - Estudiantes.zip.16c\\TransitSoft\\TransitSoftWA\\TransitSoft.Master [Solo lectura]",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-26T21:52:47.511Z",
-              "EditorCaption": " [Solo lectura]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Stockify.Master",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Stockify.Master",
               "RelativeDocumentMoniker": "StockifyWeb\\Stockify.Master",

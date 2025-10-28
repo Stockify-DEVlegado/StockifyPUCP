@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\",
+  "WorkspaceRootPath": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|c:\\users\\lenovo\\documents\\2025-2\\prog3\\stockify - devlegado\\stockify\\stockifypucp\\.net\\stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -13,6 +14,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\stockifyweb\\ordenes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\ordenes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+=======
+      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|d:\\6ciclo\\programaci\u00F3n03\\stockifypucp\\stockifypucp\\.net\\stockifyweb\\ordenes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\ordenes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|d:\\6ciclo\\programaci\u00F3n03\\stockifypucp\\stockifypucp\\.net\\stockifyweb\\ordenes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\ordenes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|d:\\6ciclo\\programaci\u00F3n03\\stockifypucp\\stockifypucp\\.net\\stockifyweb\\stockify.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\stockify.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{70E426C9-E24D-4B71-B6E4-5AB2F0AABA1A}|StockifyWeb\\StockifyWeb.csproj|solutionrelative:stockifyweb\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+>>>>>>> d3950c5e691d7828ea991385ec0921a53f2fedfa
     }
   ],
   "DocumentGroupContainers": [
@@ -22,10 +39,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "Ordenes.aspx",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Ordenes.aspx",
@@ -38,10 +56,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+=======
+              "DocumentIndex": 0,
+              "Title": "Ordenes.aspx.cs",
+              "DocumentMoniker": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Ordenes.aspx.cs",
+              "RelativeDocumentMoniker": "StockifyWeb\\Ordenes.aspx.cs",
+              "ToolTip": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Ordenes.aspx.cs*",
+              "RelativeToolTip": "StockifyWeb\\Ordenes.aspx.cs*",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAUwMEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T23:56:52.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ordenes.aspx",
+              "DocumentMoniker": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Ordenes.aspx",
+              "RelativeDocumentMoniker": "StockifyWeb\\Ordenes.aspx",
+              "ToolTip": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Ordenes.aspx*",
+              "RelativeToolTip": "StockifyWeb\\Ordenes.aspx*",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-27T23:56:36.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+>>>>>>> d3950c5e691d7828ea991385ec0921a53f2fedfa
               "Title": "Inicio.aspx",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Inicio.aspx",
+              "DocumentMoniker": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Inicio.aspx",
               "RelativeDocumentMoniker": "StockifyWeb\\Inicio.aspx",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Inicio.aspx",
+              "ToolTip": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Inicio.aspx",
               "RelativeToolTip": "StockifyWeb\\Inicio.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -50,11 +97,15 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 2,
+>>>>>>> d3950c5e691d7828ea991385ec0921a53f2fedfa
               "Title": "Stockify.Master",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Stockify.Master",
+              "DocumentMoniker": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Stockify.Master",
               "RelativeDocumentMoniker": "StockifyWeb\\Stockify.Master",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\2025-2\\PROG3\\Stockify - DEVlegado\\Stockify\\StockifyPUCP\\.net\\StockifyWeb\\Stockify.Master",
+              "ToolTip": "D:\\6Ciclo\\Programaci\u00F3n03\\StockifyPUCP\\StockifyPUCP\\.net\\StockifyWeb\\Stockify.Master",
               "RelativeToolTip": "StockifyWeb\\Stockify.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",

@@ -73,6 +73,8 @@
     <Content Include="Proveedores.aspx" />
     <Content Include="Reportes.aspx" />
     <Content Include="Web.config" />
+    <Content Include="login.aspx" />
+    <Content Include="Register.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Inicio.aspx.cs">
@@ -117,6 +119,20 @@
     </Compile>
     <Compile Include="Stockify.Master.designer.cs">
       <DependentUpon>Stockify.Master</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
